@@ -402,15 +402,20 @@ before.) Markdown files can be edited in both modes.</p>
 <div id="environment-panel" class="section level3">
 <h3>Environment panel</h3>
 <p>The environment panel provides a list of what is being stored in your
-current R environment. Run the following code to see new variables show
-up in your environment. (You can make new code chunks using the green
-plus C button on the top left of the source panel when editing Rmd
-files.)</p>
+current R environment.</p>
+<blockquote>
+<p><strong><em>Exercise 1:</em></strong> Run the following code to see
+new variables show up in your environment. (You can make new code chunks
+using the green plus C button on the top left of the source panel when
+editing Rmd files.)</p>
+</blockquote>
 <pre class="r"><code>this_class &lt;- &quot;Features of RStudio&quot;
 list_of_numbers &lt;- c(1:10, 100:105)</code></pre>
+<blockquote>
 <p>Now clear your environment using the broom button. It will ask you to
 confirm. You can also remove individual items with the remove()
 function.</p>
+</blockquote>
 <p>There are two view options in the Environment tab, List or Grid. They
 display the same information in slightly different formats.</p>
 <p>You can save your Environment by saving a “Workspace”. And there are
@@ -455,9 +460,14 @@ track background jobs.</p>
 <p>You can change the layout of these panels.</p>
 <p>Click “Tools” in the toolbar, then “Global Options…” in the
 drop-down.</p>
-<p>Now in the popup window, click “Pane Layout” on the left side. Here
+<p>Then in the popup window, click “Pane Layout” on the left side. Here
 you can change which panels are in which windows using the drop-down
 menus, and even add another column of panels if you’d like.</p>
+<blockquote>
+<p><strong><em>Exercise 2:</em></strong> Rearrange your panels so that
+“Source” is on the top right and “Console” is on the top left. Then
+rearrange to default if you prefer.</p>
+</blockquote>
 </div>
 </div>
 <div id="projects" class="section level2">
@@ -491,10 +501,18 @@ for the workshop today</strong></p></li>
 <li><p>Now reopen RStudioFeatures.Rmd from the file navigator in the
 output panel.</p></li>
 </ol>
+<blockquote>
+<p><strong><em>Exercise 3:</em></strong> Create an R project using the
+steps above.</p>
+</blockquote>
 <p>In the file navigator you can see this created a .Rproj file. That
 file can be used to open this R project in RStudio.</p>
-<p>Now that you’re working within an R project, read the pumpkin data in
-using the relative path:</p>
+<p>Now that you’re working within an R project, the relative path for
+the pumpkin data should work on everyone’s computer!</p>
+<blockquote>
+<p><strong><em>Exercise 4:</em></strong> Read in data using the relative
+path in the code chunk below.</p>
+</blockquote>
 <pre class="r"><code>rel_path &lt;- &quot;data/pumpkin_production.csv&quot;
 pumpkin_data &lt;- read.csv(rel_path)</code></pre>
 <p>Another useful feature of the source panel is using it to visualize
@@ -517,20 +535,26 @@ shortcut help and edit keyboard shortcuts.</p>
 theme, or just a different theme, you can also change that within the
 Global Options window.</p>
 <p>Open “Global Options…” again and click “Appearance”. You can now
-choose themes from the drop-down. To apply, click “Apply” and then to
-close the window click “OK”.</p>
+choose themes from the Editor Theme options. To apply, click “Apply” and
+then to close the window click “OK”.</p>
+<blockquote>
+<p><strong><em>Exercise 5:</em></strong> Change your RStudio appearance
+to Solarized Light. (And then back if you prefer.)</p>
+</blockquote>
 </div>
 </div>
 <div id="file-types" class="section level2">
 <h2>File types</h2>
 <p>RStudio supports multiple file types. The simplest one is an R
 script, which has a .R filetype indicator.</p>
+<p>You can create new files using the button that looks like blank page
+with a green plus sign on the top left of the screen, or with “File”
+“New File..” in the toolbar. Many of the file types you can create from
+this drop down open as a template with some simple instructions to get
+you started.</p>
 <p>This is an R Markdown document. Markdown is a simple formatting
 syntax for authoring HTML, PDF, and MS Word documents. For more details
 on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
-<p>You can create new files using the button that looks like blank page
-with a green plus sign on the top left of the screen, or with “File”
-“New File..” in the toolbar.</p>
 </div>
 <div id="saving-a-workspace-image" class="section level2">
 <h2>Saving a workspace image</h2>
