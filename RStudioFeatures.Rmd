@@ -1,0 +1,149 @@
+---
+title: "Features of RStudio"
+author: "Haley Carter, Ritika Giri"
+date: "2023-10-02"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+RStudio is a graphical user interface or GUI that provides an environment for R coding. R can be used without RStudio, but I think RStudio offers a lot of great functionality which we're going to talk about today.
+
+## RStudio panel layout
+
+The RStudio user interface has 4 primary panes:
+
+-   **Source** pane
+
+-   **Console** pane
+
+-   **Environment** pane, containing the **Environment**, **History**, **Connections**, and **Tutorial** tabs
+
+-   **Output** pane, containing the **Files**, **Plots**, **Packages**, **Help**, **Viewer**, and **Presentation** tabs
+
+Each pane can be minimized or maximized within the column by clicking the minimize/maximize buttons ![The min-max button which shows a collapsed or expanded Window.](https://docs.posit.co/ide/user/ide/guide/ui/images/min-max.png){alt="The min-max button which shows a collapsed or expanded Window." width="25" height="14"}.
+
+![](images/rstudio-panes-labeled.jpeg)
+
+### Source panel
+
+The source panel is where you can work on files. Open the RStudioFeatures.Rmd file and navigate to this line in the Source panel.
+
+On the top right of this panel there is an "Outline" button. You can use this to navigate the file you have open if it has navigable headers.
+
+On the top left of this panel there are "Source" and "Visual" options. Toggle between the two and notice the difference between the source code of this document versus the rendered visual version. (You may have to click "Use visual mode" on a pop-up if you haven't done this before.) Markdown files can be edited in both modes.
+
+### Environment panel
+
+The environment panel provides a list of what is being stored in your current R environment. Run the following code to see new variables show up in your environment. (You can make new code chunks using the green plus C button on the top left of the source panel when editing Rmd files.)
+
+```{r}
+this_class <- "Features of RStudio"
+list_of_numbers <- c(1:10, 100:105)
+```
+
+Now clear your environment using the broom button. It will ask you to confirm. You can also remove individual items with the remove() function.
+
+There are two view options in the Environment tab, List or Grid. They display the same information in slightly different formats.
+
+You can save your Environment by saving a "Workspace". And there are some GUI options for loading in data as well.
+
+In the same panel you have a history tab, which you can use to see all the code you've run and send that code to the Console or to a script file. Just like in the Environment tab, you have a broom button to sweep your History clear if you'd like.
+
+### Output panel
+
+The output panel has many different tabs.
+
+"Files" is a file navigator.
+
+"Plots" is where plots you've created will appear.
+
+"Packages" gives a list of the packages installed on your computer and if they're available in your R session the box on the right will be checked. Checking this box is the same as running library(package)
+
+"Help" contains documentation for R functions and packages. You can search function names in the search bar, similar to running ?function()
+
+"Viewer" is used to view local web content. We will not use it today.
+
+"Presentation" is used to view presentations. We will not use it today.
+
+### Console
+
+The last of the four default panels in RStudio is the console. This is where code is actually run. You can type code directly into the console or send it to the consule from a file in your source panel using the "Run" buttons or CMD+return or CTL+return keyboard shortcuts. When you use the GUI buttons in RStudio you often see the synonymous code line run in the console.
+
+The console also has a "Terminal" tab that can be used like any other terminal application to interact with your computer, a "Render" tab which you will see output in if you "Knit" this document to render the visual version, and a "Background Jobs" tab in which you can run or track background jobs.
+
+### Changing panel layouts
+
+You can change the layout of these panels.
+
+Click "Tools" in the toolbar, then "Global Options..." in the drop-down.
+
+Now in the popup window, click "Pane Layout" on the left side. Here you can change which panels are in which windows using the drop-down menus, and even add another column of panels if you'd like.
+
+## Projects
+
+One of the most helpful features of RStudio is the ability to create and manage R projects. Projects are associated with a directory or folder on your computer. They tie your R environment to that directory so that it's easy to access files within that folder.
+
+Using R projects is good practice for file organization because it helps keep things in one place. It also automatically sets your working directory so that you can use relative file paths.
+
+```{r}
+# absolute file path to pumpkin data
+abs_path <- "/Users/haley/Documents/Github/rstudiofeatures/data/pumpkin_production.csv"
+# relative file path to pumpkin data from this project
+rel_path <- "data/pumpkin_production.csv"
+```
+
+This can also make collaboration easier, because you can share a single folder with an R project and then the relative paths will be the same across colleagues computers.
+
+We're going to create a project in the folder you downloaded from GitHub where this RStudioFeatures.Rmd file is. The process will relaunch RStudio and you will need to reopen this file so read through the instructions first and I will keep them open on the Zoom screen.
+
+1.  To create an R project, you can choose "New Project.." from the "File" drop-down in the toolbar, or click the button that looks like a clear blue cube with a green plus circle on the top right.
+
+2.  It will ask if you want to create a new directory for this project, use an existing directory, or use a version control directory. **Choose "Existing Directory" and choose the folder you downloaded for the workshop today**
+
+3.  Now reopen RStudioFeatures.Rmd from the file navigator in the output panel.
+
+In the file navigator you can see this created a .Rproj file. That file can be used to open this R project in RStudio.
+
+Now that you're working within an R project, read the pumpkin data in using the relative path:
+
+```{r}
+rel_path <- "data/pumpkin_production.csv"
+pumpkin_data <- read.csv(rel_path)
+```
+
+Another useful feature of the source panel is using it to visualize data. Check it out with..
+
+```{r, eval=F}
+View(pumpkin_data)
+```
+
+..or by clicking on pumpkin_data in the environment panel.
+
+## Global and Project Options
+
+If you click the "Tools" drop-down again, there is now a "Project Options..." option as well as a "Global Options...".
+
+Project options will only change the settings for the current R project. Global options will change the settings for any time you open RStudio, and also allows you to change more of the settings.
+
+You might also notice that under "Tools" you can access the keyboard shortcut help and edit keyboard shortcuts.
+
+### Visual appearance
+
+My RStudio might look different than yours. If you prefer a dark theme, or just a different theme, you can also change that within the Global Options window.
+
+Open "Global Options..." again and click "Appearance". You can now choose themes from the Editor Theme options. To apply, click "Apply" and then to close the window click "OK".
+
+## File types
+
+RStudio supports multiple file types. The simplest one is an R script, which has a .R filetype indicator.
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+You can create new files using the button that looks like blank page with a green plus sign on the top left of the screen, or with "File" "New File.." in the toolbar.
+
+## Saving a workspace image
+
+When you close RStudio it ask if you'd like to save a workspace image. If you say yes, and then you reopen this R project, the objects in your environment when you close RStudio will be there again when you reopen RStudio. This can be helpful, however it is often more helpful to have R always open as a clean slate. I recommend NOT saving a workspace image.
